@@ -148,4 +148,16 @@ if (empty($_l->extends) && !empty($_control->snippetMode)) {
 		}
 	}
 
+
+	/**
+	 * Returns snippet HTML ID.
+	 * @param  string  snippet name
+	 * @return string
+	 */
+	public static function computeSnippetId(Nette\Application\UI\Control $control, $name = NULL)
+	{
+		// HTML 4 ID & NAME: [A-Za-z][A-Za-z0-9:_.-]*
+		return 'snippet-' . $this->getUniqueId() . '-' . $name;
+	}
+
 }
