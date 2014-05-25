@@ -176,8 +176,7 @@ abstract class Control extends PresenterComponent implements IRenderable
 	 */
 	public function getSnippetId($name = NULL)
 	{
-		// HTML 4 ID & NAME: [A-Za-z][A-Za-z0-9:_.-]*
-		return 'snippet-' . $this->getUniqueId() . '-' . $name;
+		return Nette\Bridges\ApplicationLatte\UIMacros::computeSnippetId($this, $name);
 	}
 
 }
