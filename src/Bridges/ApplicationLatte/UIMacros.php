@@ -120,7 +120,7 @@ if (empty($_l->extends) && !empty($_control->snippetMode)) {
 				ob_start();
 				$function = reset($function);
 				$snippets = $function($local, $params + array('_snippetMode' => TRUE));
-				$payload->snippets[$id = $control->getSnippetId(substr($name, 1))] = ob_get_clean();
+				$payload->snippets[$id = self::computeSnippetId($control, substr($name, 1))] = ob_get_clean();
 				if ($snippets !== NULL) { // pass FALSE from snippetArea
 					if ($snippets) {
 						$payload->snippets += $snippets;
